@@ -1,6 +1,6 @@
 # CHAPTER 6: PROCESS MANAGEMENT, SERVICES, systemctl, journalctl, cron
 
-6## .1 Theory
+## 6.1 Theory
 
 A process is a running instance of a program. Every process has a unique Process ID (PID), a parent process (PPID), and exists in a particular state (running, sleeping, stopped, zombie). Modern Linux distributions use systemd as the init system — the very first process (PID 1) that starts at boot and manages all other services thereafter.
 
