@@ -4,18 +4,18 @@
 
 Linux is a free, open-source operating system kernel originally created by Linus Torvalds in 1991 as a personal project while he was a student at the University of Helsinki, Finland. Unlike Windows or macOS, which are owned by single companies (Microsoft and Apple), Linux is developed collaboratively by thousands of programmers around the world and is released under the GNU General Public License (GPL), meaning anyone can view, modify, and redistribute its source code.
 
-Strictly speaking, "Linux" refers only to the kernel — the core program that talks directly to your computer's hardware (CPU, memory, disk, network card). What most people call "Linux" (like Ubuntu, CentOS, Red Hat Enterprise Linux, Fedora, Debian) is actually GNU/Linux — the Linux kernel bundled together with thousands of GNU tools, utilities, and a package manager, all wrapped into something called a distribution (or "distro").
+Strictly speaking, `Linux` refers only to the kernel — the core program that talks directly to your computer's hardware (CPU, memory, disk, network card). What most people call "Linux" (like Ubuntu, CentOS, Red Hat Enterprise Linux, Fedora, Debian) is actually GNU/Linux — the Linux kernel bundled together with thousands of GNU tools, utilities, and a package manager, all wrapped into something called a distribution (or "distro").
 
 ## 1.2 Why Linux Exists (and Why It Matters for DevOps)
 
 Windows dominates personal desktops, but Linux dominates servers. Over 90% of the world's cloud infrastructure (including AWS EC2 instances), nearly all of the top 500 supercomputers, and the majority of Docker containers run on Linux. Here's why:
 
 
-Free and open-source — no licensing cost, which matters enormously at cloud scale (imagine paying a Windows license fee for 10,000 servers).
-Stability — Linux servers can run for years without a reboot.
-Security — a robust permission model and a smaller attack surface compared to GUI-heavy operating systems.
-Customizability — you can strip Linux down to only what you need (critical for lightweight Docker images).
-Automation-friendly — Linux is built around the command line, which is exactly what tools like Ansible, Terraform, and Jenkins need to operate.
+- Free and open-source — no licensing cost, which matters enormously at cloud scale (imagine paying a Windows license fee for 10,000 servers).
+- Stability — Linux servers can run for years without a reboot.
+- Security — a robust permission model and a smaller attack surface compared to GUI-heavy operating systems.
+- Customizability — you can strip Linux down to only what you need (critical for lightweight Docker images).
+- Automation-friendly — Linux is built around the command line, which is exactly what tools like Ansible, Terraform, and Jenkins need to operate.
 
 
 For you as a future DevOps engineer: Every AWS EC2 instance you'll launch in Part 2 of this book will most likely run a Linux distribution (Amazon Linux 2/2023, Ubuntu, or RHEL). Every Docker container is built on a minimal Linux base image. If you don't know Linux, you cannot do DevOps — period.
@@ -64,40 +64,41 @@ Important for your RHCSA background: Since you're RHCSA V9 and V10 certified, yo
 ## 1.6 Best Practices
 
 
-Always use a well-supported LTS (Long Term Support) distro version in production (e.g., Ubuntu 22.04 LTS, not a random interim release).
-Keep your system updated regularly (apt update && apt upgrade / dnf update).
-Learn one distro family deeply first (you already know RHEL family), then cross-train on the other (Debian/Ubuntu) since most job postings mention Ubuntu.
+- Always use a well-supported LTS (Long Term Support) distro version in production (e.g., Ubuntu 22.04 LTS, not a random interim release).
+- Keep your system updated regularly (apt update && apt upgrade / dnf update).
+- Learn one distro family deeply first (you already know RHEL family), then cross-train on the other (Debian/Ubuntu) since most job postings mention Ubuntu.
 
 
 ## 1.7 Common Mistakes
 
 
-Assuming all Linux distros use the same package manager — they don't (apt vs dnf/yum).
-Confusing "Linux" (the kernel) with "Linux distribution" (the full OS) in interviews — this is a common trick question.
-Thinking Linux has no GUI — most distros do, but servers typically run headless (no GUI) to save resources.
+- Assuming all Linux distros use the same package manager — they don't (apt vs dnf/yum).
+- Confusing "Linux" (the kernel) with "Linux distribution" (the full OS) in interviews — this is a common trick question.
+- Thinking Linux has no GUI — most distros do, but servers typically run headless (no GUI) to save resources.
 
 
 ## 1.8 Interview Questions
 
 
-What is the difference between Linux (the kernel) and a Linux distribution?
-Why do most cloud servers run Linux instead of Windows?
-Name three RPM-based and three Debian-based distributions.
-What license is Linux released under, and what does that mean practically?
-What is Amazon Linux, and why would AWS create its own distro?
+1. What is the difference between Linux (the kernel) and a Linux distribution?
+2. Why do most cloud servers run Linux instead of Windows?
+3. Name three RPM-based and three Debian-based distributions.
+4. What license is Linux released under, and what does that mean practically?
+5. What is Amazon Linux, and why would AWS create its own distro?
 
 
 ## 1.9 Scenario-Based Question
 
-Scenario: Your company's DevOps team is standardizing all EC2 instances on one OS family. The current stack has a mix of Ubuntu and CentOS Stream servers, causing confusion because engineers keep running apt on CentOS and yum on Ubuntu by mistake. How would you propose standardizing this, and what documentation would you create?
+**Scenario**: Your company's DevOps team is standardizing all EC2 instances on one OS family. The current stack has a mix of Ubuntu and CentOS Stream servers, causing confusion because engineers keep running apt on CentOS and yum on Ubuntu by mistake. How would you propose standardizing this, and what documentation would you create?
 
-(Sample answer approach: Recommend Ubuntu LTS for its larger community/AWS AMI support, create an internal wiki page mapping every yum/dnf command engineers know to its apt equivalent, and use Infrastructure as Code (Terraform, covered in Part 4) to enforce a single AMI going forward.)
+> (Sample answer approach: Recommend Ubuntu LTS for its larger community/AWS AMI support, create an internal wiki page mapping every yum/dnf command engineers know to its apt equivalent, and use Infrastructure as Code (Terraform, covered in Part 4) to enforce a single AMI going forward.)
 
 ## 1.10 Troubleshooting
 
 
-Issue: "Command not found" errors when switching from Ubuntu to CentOS or vice versa.
-Fix: Check which package manager the distro uses (cat /etc/os-release tells you the distro), then use the correct manager (see Chapter 14).
+***Issue***: "Command not found" errors when switching from Ubuntu to CentOS or vice versa.
+
+***Fix***: Check which package manager the distro uses (cat /etc/os-release tells you the distro), then use the correct manager (see Chapter 14).
 
 
 ## 1.11 Summary
