@@ -219,8 +219,11 @@ Scenario: You deployed your Flask application on an EC2 instance using a systemd
 ## 6.14 Troubleshooting
 
 ***Issue***: Service shows "failed" status.
+
 ***Fix***: journalctl -u <service> -n 50 --no-pager to see the last 50 log lines and identify the actual error (missing dependency, wrong file path, port already in use, etc.).
+
 ***Issue***: Cron job doesn't run.
+
 ***Fix***: Check /var/log/syslog (Ubuntu) or /var/log/cron (RHEL) for cron execution logs; verify absolute paths are used inside the script/command; check crontab -l for typos.
 
 
