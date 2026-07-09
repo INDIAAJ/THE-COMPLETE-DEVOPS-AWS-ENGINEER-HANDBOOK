@@ -107,8 +107,8 @@ grep "Failed password" /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -
 ## 9.8 Architecture Diagram — The Unix Pipe Philosophy
 ```sh
    cat access.log  │  awk '{print $1}'  │  sort  │  uniq -c  │  sort -rn  │  head -5
-   ─────────────   │  ─────────────────  │ ────── │ ───────── │ ────────── │ ────────
-   Read raw log  ──►  Extract IP column ──► Sort ──► Count dups ──► Sort by count ──► Top 5
+   ─────────────   │  ───────────────── │ ────── │ ───────── │ ────────── │ ────────
+   Read raw log  ──► Extract IP column ──► Sort ──► Count dups ──► Sort by count ──► Top 5
 ```
 Each tool does ONE job well; the pipe | passes output from one command as input to the next, letting you build powerful one-liners from simple building blocks.
 
