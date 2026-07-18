@@ -66,22 +66,22 @@ dG                  Delete from current line to end of file
 ```
 ## 12.5 Architecture Diagram — Vim Mode Switching
 ```bash
-                    ┌──────────────┐
+                     ┌──────────────┐
              Esc     │              │      i / a / o
         ┌───────────►│ NORMAL MODE  │◄───────────────┐
-        │            │  (default)   │                 │
-        │            └──────┬───────┘                 │
-        │                   │ :                        │
-        │                   ▼                          │
-        │           ┌──────────────┐                   │
-        │           │ COMMAND MODE │                    │
-        │           │ :w :q :wq    │                    │
-        │           └──────────────┘                    │
-        │                                                │
-   ┌────┴─────────┐                              ┌──────┴──────┐
-   │ VISUAL MODE  │◄──────────── v ───────────────│ INSERT MODE │
-   │  (select)    │                                │  (typing)   │
-   └──────────────┘                                └─────────────┘
+        │            │  (default)   │                │
+        │            └──────┬───────┘                │
+        │                   │ :                      │
+        │                   ▼                        │
+        │           ┌──────────────┐                 │
+        │           │ COMMAND MODE │                 │
+        │           │ :w :q :wq    │                 │
+        │           └──────────────┘                 │
+        │                                            │
+   ┌────┴─────────┐                           ┌──────┴──────┐
+   │ VISUAL MODE  │◄──────────── v ──────────►│ INSERT MODE │
+   │  (select)    │                           │  (typing)   │
+   └──────────────┘                           └─────────────┘
 ```
 ## 12.6 Real-World Example
 
